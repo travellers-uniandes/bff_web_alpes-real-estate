@@ -1,8 +1,8 @@
 from pulsar import ConsumerType, Client
 
 pulsar_url = "pulsar://localhost:6650"
-topic_name = "persistent://public/default/comando-crear-reserva"
-subscription_name = "audit-sub-events"
+topic_name = "persistent://public/default/create-company"
+subscription_name = "bff-sub-events"
 
 client = Client(pulsar_url)
 consumer = client.subscribe(
@@ -19,7 +19,6 @@ try:
         except Exception as e:
             print("Error al procesar el mensaje:", str(e))
         finally:
-            # Marca el mensaje como consumido
             consumer.acknowledge(msg)
 except Exception as e:
     print("Error:", str(e))

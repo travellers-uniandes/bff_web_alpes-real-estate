@@ -26,5 +26,5 @@ async def suscribirse_a_topico(topico: str, suscripcion: str, schema: str,
                     await consumidor.acknowledge(mensaje)
 
     except:
-        logging.error(f'ERROR: Suscribiendose al tópico! {topico}, {suscripcion}, {schema}')
+        logging.error(f'ERROR: Suscribiéndose al tópico! {topico}, {suscripcion}, {schema}')
         traceback.print_exc()

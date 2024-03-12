@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 import asyncio
 from pydantic_settings import BaseSettings
 from typing import Any
-from src.consumidores import suscribirse_a_topico
+from src.consumers import suscribirse_a_topico
 from src.api.v1.router import router as v1
 from sse_starlette.sse import EventSourceResponse
 
@@ -44,7 +44,6 @@ async def stream_mensajes(request: Request):
     async def leer_eventos():
         global eventos
         while True:
-            # Si el cliente cierra la conexión deja de enviar eventos
             if await request.is_disconnected():
                 break
 

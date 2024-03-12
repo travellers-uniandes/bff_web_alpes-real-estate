@@ -36,12 +36,6 @@ def consultar_schema_registry(topico: str) -> dict:
         if response.status_code != 200:
             print('-------------response', response.text)
         return {}
-        # if response.status_code == 200:
-        #     json_registry = response.json()
-        #     return json.loads(json_registry.get('data', {}))
-        # else:
-        #     # Handle non-200 status codes here
-        #     return {}  # or raise an exception
     except Exception as e:
         print('-----------error', str(e))
 
