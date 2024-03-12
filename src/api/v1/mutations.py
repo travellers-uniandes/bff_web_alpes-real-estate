@@ -1,14 +1,15 @@
 import uuid
+import strawberry
 from strawberry.types import Info
 from src.utils import time_millis
-from src.despachadores import Despachador
-from .esquemas import *
+from src.dispatchers import Dispatcher
+from .schemas import ResponseCompany
 
 
 @strawberry.type
 class Mutation:
     @strawberry.mutation
-    async def crear_reserva(self, name: str, location: str, type_company: str, info: Info) -> CompanyRespuesta:
+    async def crear_reserva(self, name: str, location: str, type_company: str, info: Info) -> ResponseCompany:
         payload = dict(
             name=name,
             location=location,
@@ -24,7 +25,7 @@ class Mutation:
             service_name="BFF Web",
             data=payload
         )
-        despachador = Despachador()
-        info.context["background_tasks"].add_task(despachador.post_message, command, "comando-crear-reserva",
-                                                  "public/default/comando-crear-reserva")
-        return CompanyRespuesta(mensaje="Procesando Mensaje", codigo=203)
+        dispatcher = Dispatcher()
+        info.context["background_tasks"].add_task(dispatcher.post_message, command, "create-company",
+                                                  "public/default/create-company")
+        return ResponseCompany(message="Procesando Mensaje", code=203)

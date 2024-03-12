@@ -3,10 +3,7 @@ import pulsar
 from src.utils import broker_host
 
 
-class Despachador:
-    def __init__(self):
-        ...
-
+class Dispatcher:
     @staticmethod
     async def post_message(message, topic, schema):
         client = pulsar.Client(f'pulsar://{broker_host()}:6650')
