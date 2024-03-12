@@ -33,10 +33,10 @@ class Company:
     id: str
     name: str
     location: str
-    type_company: str
+    typeCompany: str
     events: typing.List[str]
-    created_at: datetime
-    updated_at: datetime
+    createdAt: datetime
+    updatedAt: datetime
 
 
 @strawberry.type
