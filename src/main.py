@@ -44,7 +44,6 @@ async def stream_mensajes(request: Request):
     async def leer_eventos():
         global eventos
         while True:
-            # Si el cliente cierra la conexión deja de enviar eventos
             if await request.is_disconnected():
                 break
 

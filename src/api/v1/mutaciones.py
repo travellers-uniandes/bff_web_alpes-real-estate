@@ -27,6 +27,4 @@ class Mutation:
         despachador = Despachador()
         info.context["background_tasks"].add_task(despachador.publicar_mensaje, comando, "comando-crear-reserva",
                                                   "public/default/comando-crear-reserva")
-        # info.context["background_tasks"].add_task(despachador.publicar_mensaje, comando, "comando-create-company1", "public/default/comando-create-company1")
-
         return CompanyRespuesta(mensaje="Procesando Mensaje", codigo=203)

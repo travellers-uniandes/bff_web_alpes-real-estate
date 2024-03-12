@@ -26,12 +26,6 @@ def obtener_companies(root) -> typing.List["Company"]:
 
 
 @strawberry.type
-class Itinerario:
-    # TODO Completar objeto strawberry para incluir los itinerarios
-    ...
-
-
-@strawberry.type
 class Company:
     id: str
     name: str
